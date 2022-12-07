@@ -67,6 +67,7 @@ header {
     border-bottom: 1px solid #EEEEF4;
     padding: 24px 0;
     position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
     right: 0;
@@ -76,7 +77,6 @@ header {
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .header .header-left {
@@ -113,6 +113,10 @@ header {
     opacity: 0.6;
 }
 
+.header-right {
+    margin-left: auto;
+}
+
 
 .header-right .top-tel-number {
     background: #101010;
@@ -140,8 +144,8 @@ header {
 }
 
 .main {
-    margin-top: 181px;
-    margin-bottom: 200px;
+    padding-top: 181px;
+    padding-bottom: 200px;
 }
 
 /* hero part */
@@ -180,9 +184,9 @@ header {
 }
 
 .card-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 32px;
 }
 
 .services-card {
@@ -209,39 +213,44 @@ header {
 }
 
 .card-inner .card-img {
-    padding: 17px 17.25px 17px 16.75px;
-    background: #E1E7ED;
-    border-radius: 84px;
+    width: 64px;
+    height: 64px;
+    position: relative;
+    border-radius: 50%;
+    background-color: #E1E7ED;
+}
+
+.services-card .card-img::after {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    content: '';
+    background-repeat: no-repeat;
 }
 
 .services-card:nth-child(1) .card-img::after {
-    content: url(./img/pen-tool.svg);
-    width: 30px;
-    height: 30px;
+    background-image: url(./img/pen-tool.svg);
 }
 
 .services-card:nth-child(2) .card-img::after {
-    content: url(./img/smm.svg);
-    width: 30px;
-    height: 30px;
+    background-image: url(./img/smm.svg);
 }
 
 .services-card:nth-child(3) .card-img::after {
-    content: url(./img/branding.svg);
-    width: 30px;
-    height: 30px;
+    background-image: url(./img/branding.svg);
 }
 
 .services-card:nth-child(4) .card-img::after {
-    content: url(./img/developer.svg);
-    width: 30px;
-    height: 30px;
+    background-image: url(./img/developer.svg);
 }
 
 .services-card:nth-child(5) .card-img::after {
-    content: url(./img/designtools.svg);
-    width: 30px;
-    height: 30px;
+    background-image: url(./img/designtools.svg);
 }
 
 .services-card .card-link {
@@ -260,33 +269,24 @@ header {
 .services-card:hover {
     background: #1AAB7B;
     border: 2px solid #1AAB7B;
-    transition: all ease 2s;
+    transition: all linear 2s;
 }
 
-.services-card:first-child {
-    background: #1AAB7B;
-    border: none;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 150%;
-    color: #FFFFFF;
-}
-
-.services-card:first-child .card-title {
+.services-card:hover .card-title {
     color: #fff;
 }
 
-.services-card:first-child .text {
+.services-card:hover .card-img {
+    background-color: #fff;
+}
+
+.services-card:hover .text {
     color: #fff;
 }
 
-.services-card:first-child .card-link {
+.services-card:hover .card-link {
+    color: #fff;
     text-decoration: underline;
-    color: #fff;
-}
-
-.services-card:first-child .card-img {
-    background: #FFFFFF;
 }
 
 
@@ -338,7 +338,8 @@ header {
     border-radius: 6px;
     display: flex;
     flex-direction: column;
-    padding: 41px 312px 64px 312px;
+    width: 1008px;
+    padding: 64px 0;
 }
 
 .order-form {
@@ -346,34 +347,35 @@ header {
     flex-direction: column;
     align-items: center;
     row-gap: 10px;
+    width: 384px;
+    margin: 0 auto;
 }
 
 .order-wrapper .order-form .order-input {
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
-    padding: 35px 0 20px 0;
+    padding: 15px 0 20px 0;
     color: #101010;
     background: #F2F4F6;
     border: none;
     outline: none;
-}
-
-.order-inner {
-    width: 100%;
+    width: 384px;
     border-bottom: 1px solid #636F87;
 }
 
-/* .input-img::after {
-    content: url(./img/vector.svg);
-    width: 11px;
-    height: 5.5px;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    right: 5px;
-} */
+.order-select {
+    width: 384px;   
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    padding: 15px 0 20px 0;
+    color: #101010;
+    background: #F2F4F6;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #636F87;
+}
 
 .order-wrapper .order-form button {
     margin-top: 40px;
@@ -496,7 +498,7 @@ footer {
     border: 1.5px solid #1AAB7B;
     color: #1AAB7B;
     transition: 1s;
-    
+
 }
 
 .btn:active {

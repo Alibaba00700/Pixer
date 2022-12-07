@@ -194,23 +194,20 @@
             </p>
             <div class="order-wrapper">
                 <form class="order-form" action="https://echo.htmlacademy.ru/">
-                    <div class="order-inner">
                         <label for="name"></label>
                         <input class="order-input" required type="text" id="name" name="Name" placeholder="Name">
-                    </div>
-                    <div class="order-inner">
                         <label for="number"></label>
                         <input class="order-input" required type="tel" id="number" name="Phone number"
                             placeholder="Phone number">
-                    </div>
-                    <div class="order-inner">
                     <label for="description"></label>
-                        <input class="order-input " required placeholder="Description" name="Description" id="description">
-                        <div class="input-img"></div>
-                    </div>
+                        <select class="order-select" required name="Description" id="description">
+                            <option value="Description">Description</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Wolswagen">Wolswagen</option>
+                        </select>
                     <button  type="submit" class="order-btn btn">Send</button>
+                    <p class="order-text">We call back in 10-30 minutes, guaranteed!</p>
                 </form>
-                <p class="order-text">We call back in 10-30 minutes, guaranteed!</p>
             </div>
         </section>
 
